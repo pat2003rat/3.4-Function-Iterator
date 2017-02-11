@@ -1,9 +1,6 @@
 // Question 1 //
 
-// Show me how to calculate
-// the average price of all
-// items. Please console.log
-// the average.//
+// Show me how to calculate the average price of all items. Please console.log the average
 
 var money = items.map(function(a){
 
@@ -30,10 +27,20 @@ console.log("The average price is" + " " + '$' + avg(sum, money.length));
 //--------Question 2 -----------//
 // Show me how to get an array of items that cost between $14.00 and $18.00 USD
 
-var range = items.filter(function(a){
-  return a.price >14 && a.price < 18;
-});
-console.log(range);
+function dollarSign(items){
+  return items.currency_code === "USD";  //sets up filter to siphon through USD's.
+}
+
+var range = items.filter(dollarSign);
+
+function amount(total){
+  return (total.price > 14.00) && (total.price < 18.00);
+}
+
+var cheapItems = range.filter(amount);
+
+console.log("Items that cost between $14.00 USD and $18.00 USD:", cheapItems);
+
 // went into items.js folder and filtered out a specified range of items that cost between $14 and $18. Then I returned the items that were < > not <= or >= as there were 3 items shown in the example, not 5.
 
 
@@ -61,6 +68,7 @@ items.forEach(function(item){
 // Show me how to find which items are made of wood. Please console.log the ones you find.
 
 var woody = items.filter(function(item){
+
 });
 
 items.forEach(function(item){
